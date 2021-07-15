@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "title": "cool beans",
+            "id": 1,
+            "company": "ebay"
+        },
+        {
+            "title": "cool beans 2",
+            "id": 1,
+            "company": "ebay"
+        },
+        {
+            "title": "cool beans 3",
+            "id": 1,
+            "company": "ebay"
+        }
+    ]
+}

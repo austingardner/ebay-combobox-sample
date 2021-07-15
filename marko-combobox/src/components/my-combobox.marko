@@ -1,0 +1,48 @@
+class {
+    onCreate() {
+        this.state = { options: [] };
+    }
+
+    handleSelect(e) {
+        console.log("handle Select", e)
+    }
+
+    async handleFocus(e) {
+        console.log("handle focus", e);
+        const response = await fetch('http://localhost:5000/data').then(r => r.json());
+        this.state.options = response;
+        console.log(response);
+        console.log(this.state.options);
+    }
+}
+
+
+<ebay-combobox autocomplete="list" on-select('handleSelect') on-focus('handleFocus')>
+    <!-- <if(!(state && state.options.length))>  
+      <@option text="August Campaign"/>
+      <@option text="4th of July Sale (paused)"/>
+      <@option text="Basic Offer"/>
+      <@option text="Basic Offer 1"/>
+      <@option text="Basic Offer 3"/>
+      <@option text="Basic Offer 11"/>
+      <@option text="Basic Offer 12"/>
+      <@option text="Basic Offer 13"/>
+      <@option text="Basic Offer 14"/>
+      <@option text="Basic Offer 15"/>
+      <@option text="Basic Offer 16"/>
+      <@option text="Basic Offer 17"/>
+      <@option text="Basic Offer 18"/>
+      <@option text="Basic Offer 19"/>
+      <@option text="Basic Offer 20"/>
+      <@option text="Basic Offer 21"/>
+      <@option text="Basic Offer 22"/>
+      <@option text="Basic Offer 23"/>
+      <@option text="Basic Offer 24"/>
+      <@option text="Basic Offer 25"/>
+    </if> -->
+    <if(state && state.options && state.options.length)>
+        <for|option| of=state.options>
+            <@option text=`${option.title}`/>
+        </for>
+    </if>
+</ebay-combobox>
