@@ -1,0 +1,31 @@
+<style>
+    .demo-card {
+        color: #0a1c6b;
+        background: #c2f5ff;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 120px;
+        text-align: center;
+    }
+</style>
+
+<ebay-carousel items-per-slide=1>
+    <@item class=`demo-card`>
+        Card 1
+    </@item>
+    <@item class=`demo-card`>
+        <ebay-video width="600"
+        height="400"
+        on-load-error(err => {
+            console.log("handle error", err);
+        })>
+            <@source src="https://ir.ebaystatic.com/cr/v/c1/ebayui/video/v1/playlist.mpd"/>
+        </ebay-video>
+    </@item>
+    <@item class=`demo-card`>
+        Card 3
+    </@item>
+    <@item class=`demo-card`>
+        Card 4
+    </@item>
+</ebay-carousel>
